@@ -1,3 +1,7 @@
+/**
+* Estilos Globais
+*/
+
 :root {
   --primary: #21252A;
   --secondary: #2E343A;
@@ -51,6 +55,10 @@ a {
   padding: 20px;
 }
 
+/**
+* @header
+*/
+
 .header {
   display: flex;
   flex-direction: column;
@@ -81,6 +89,10 @@ a {
   text-align: center;
 }
 
+/**
+* @main
+*/
+
 .main {
   display: flex;
   flex-direction: column;
@@ -92,12 +104,30 @@ a {
   margin-bottom: 30px;
 }
 
+@media screen and (max-width: 680px) {
+  .container-search-statistics {
+    flex-direction: column;
+  }
+}
+
+/**
+* @section search
+*/
+
 .container-search {
   flex: 2;
   display: flex;
   flex-direction: column;
 
   margin-right: 30px;
+}
+
+@media screen and (max-width: 680px) {
+  .container-search {
+    flex: 1;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
 }
 
 .container-search > h2 {
@@ -166,6 +196,10 @@ a {
   background-color: var(--button-color);
 }
 
+/**
+* @section statistics
+*/
+
 .container-statistics {
   flex: 1;
   display: flex;
@@ -197,6 +231,10 @@ a {
   color: var(--text-ligth);
   font-weight: 300;
 }
+
+/**
+* @section results
+*/
 
 .container-results {
   display: flex;
@@ -231,6 +269,10 @@ a {
   margin-bottom: 20px;
 }
 
+/**
+* @section list users
+*/
+
 .list-users {
   display: flex;
   flex-wrap: wrap;
@@ -254,6 +296,12 @@ a {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 720px) {
+  .list-users > li {
+    width: 100%;
+  }
+}
+
 .list-users > li > img {
   width: 60px;
   height: 60px;
@@ -265,6 +313,10 @@ a {
   font-weight: 400;
   margin-left: 4px;
 }
+
+/**
+* @footer
+*/
 
 .footer {
   display: flex;
