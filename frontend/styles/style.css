@@ -1,0 +1,261 @@
+:root {
+  --primary: #21252A;
+  --secondary: #2E343A;
+  --title-color: #1CAACB;
+  --button-color: #D62058;
+  --text-ligth: #A4A8AB;
+  --text-dark: #2E343A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: var(--primary);
+}
+
+html, body {
+  height: 100%;
+}
+
+body, input, button {
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul[class],
+ol[class] {
+  list-style: none
+}
+
+a {
+  text-decoration: none;
+}
+
+.box {
+  border-radius: 6px;
+  box-shadow: -4px -4px 4px rgba(65, 73, 82, .25), 4px 4px 4px #1C1F23;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 60px;
+}
+
+.header > .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 30px;
+}
+
+.header .logo {
+  width: 100px;
+  height: 100px;
+}
+
+.header > .title {
+  color: #fefefe;
+  font-size: 3.8rem;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-search-statistics {
+  display: flex;
+
+  margin-bottom: 30px;
+}
+
+.container-search {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+
+  margin-right: 30px;
+}
+
+.container-search > h2 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--title-color);
+ 
+  margin-bottom: 20px;
+}
+
+.container-search > .box {
+  display: flex;
+  align-items: center;
+
+  height: 120px;
+  padding: 20px;
+}
+
+.container-search input[type="text"] {
+  flex: 4;
+
+  color: var(--button-color);
+  background-color: var(--secondary);
+  border: 2px solid var(--secondary);
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+
+  padding: 10px 20px;
+  height: 50px;
+
+  transition: border .2s;
+}
+
+.container-search input[type="text"]:focus {
+  border-width: 2px 0 2px 2px;
+  border-color: var(--button-color);
+}
+
+.container-search input[type="text"]:focus + button {
+  border-width: 2px 2px 2px 0;
+  border-color: var(--button-color);
+}
+
+.container-search button {
+  flex: 1;
+
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.4rem;
+  
+  background-color: #1B1F22;
+  border: 2px solid transparent;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+
+  padding: 10px 20px;
+  height: 50px;
+
+  transition: background-color .2s;
+}
+
+.container-search button:hover {
+  background-color: var(--button-color);
+}
+
+.container-statistics {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-statistics > h2 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--title-color);
+  
+  margin-bottom: 20px;
+}
+
+.container-statistics > .box {
+  height: 120px;
+  padding: 20px;
+}
+
+.list-statistics > li {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  font-weight: 700;
+  color: var(--text-ligth);
+}
+
+.list-statistics > li > span {
+  color: var(--text-ligth);
+  font-weight: 300;
+}
+
+.container-results {
+  display: flex;
+  flex-direction: column;
+  
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.container-results > h2 {
+  color: var(--text-ligth);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.list-users {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-users > li {
+  display: flex;
+  align-items: center;
+  
+  color: var(--text-ligth);
+  font-size: 1.4rem;
+  
+  border: 1px solid var(--text-dark);
+  border-radius: 6px;
+
+  width: 49%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.list-users > li > img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer > p,
+.footer > p > a {
+  font-size: 1.4rem;
+  color: #73777B;
+  line-height: 2.2rem;
+
+  transition: color .2s;
+}
+
+.footer > p > a:hover {
+  color: var(--title-color);
+}
