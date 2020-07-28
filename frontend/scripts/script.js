@@ -16,10 +16,10 @@ async function init() {
 }
 
 async function getUsers() {
-  const response = await fetch(URLDEV);
-  // const json = await response.json();
-  // const users = json.results;
-  const users = await response.json();
+  const response = await fetch(URL);
+  const json = await response.json();
+  const users = json.results;
+  // const users = await response.json();
 
   globalUsers = users.map(user => {
     const {
