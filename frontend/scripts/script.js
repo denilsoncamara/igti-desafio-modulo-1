@@ -1,15 +1,18 @@
-window.addEventListener('load', () => {
-  getUsers();
-  render();
-});
-
 const URL = 'http://localhost:3001/users';
+
+let globalUsers = [];
+
+async function init() {
+  await getUsers();
+
+  render();
+}
 
 async function getUsers() {
   const response = await fetch(URL);
   const users = await response.json();
 
-  const formatedUsers = users.map(user => {
+  globalUsers = users.map(user => {
     const {
       name: { first, last },
       picture: { thumbnail },
@@ -17,17 +20,16 @@ async function getUsers() {
       gender
     } = user;
 
+    const name = `${first} ${last}`;
+
     return {
-      name: `${first} ${last}`,
+      name,
+      nameLowerCase: name.toLowerCase(),
       picture: thumbnail,
       age,
       gender
     }
   });
-
-  console.log(formatedUsers);
 }
 
-function render() {
-
-}
+init();
