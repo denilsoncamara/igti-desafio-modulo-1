@@ -32,4 +32,19 @@ async function getUsers() {
   });
 }
 
+async function render() {
+  const listUsersEl = document.getElementById('listUsers');
+
+  listUsersEl.innerHTML = `
+    ${globalUsers.map(user => {
+      return `
+        <li>
+          <img src="${user.picture}" alt="Foto do usuário">
+          <strong>${user.name},</strong> <span>${user.age} anos</span>
+        </li>
+      `;
+    }).join('')}
+  `;
+}
+
 init();
