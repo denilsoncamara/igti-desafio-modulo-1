@@ -1,4 +1,5 @@
-const URL = 'http://localhost:3001/users';
+const URLDEV = 'http://localhost:3001/users';
+const URL = 'https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo';
 
 let globalUsers = [];
 let globalUsersFiltered = [];
