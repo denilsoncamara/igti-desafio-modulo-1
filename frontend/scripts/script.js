@@ -15,7 +15,8 @@ async function init() {
 
 async function getUsers() {
   const response = await fetch(URL);
-  const users = await response.json();
+  const json = await response.json();
+  const users = json.results;
 
   globalUsers = users.map(user => {
     const {
