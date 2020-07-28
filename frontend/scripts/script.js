@@ -1,10 +1,14 @@
 const URL = 'http://localhost:3001/users';
 
 let globalUsers = [];
+let globalUsersFiltered = [];
 
 async function init() {
   await getUsers();
 
+  globalUsersFiltered = [...globalUsers];
+
+  filterUsers();
   render();
 }
 
@@ -36,7 +40,7 @@ async function render() {
   const listUsersEl = document.getElementById('listUsers');
 
   listUsersEl.innerHTML = `
-    ${globalUsers.map(user => {
+    ${globalUsersFiltered.map(user => {
       return `
         <li>
           <img src="${user.picture}" alt="Foto do usuário">
@@ -45,18 +49,20 @@ async function render() {
       `;
     }).join('')}
   `;
+  
+  renderStatistics();
 }
 
 function renderStatistics() {
   const listStatisticsEl = document.getElementById('listStatistics');
   const quantityUsersEl = document.getElementById('quantityUsers');
   
-  const men = globalUsers.filter(user => user.gender === 'male');
-  const women = globalUsers.filter(user => user.gender === 'female');
+  const men = globalUsersFiltered.filter(user => user.gender === 'male');
+  const women = globalUsersFiltered.filter(user => user.gender === 'female');
   
-  const sumAge = globalUsers.reduce((acc, curr) => acc + curr.age, 0);
+  const sumAge = globalUsersFiltered.reduce((acc, curr) => acc + curr.age, 0);
 
-  const averageAges = sumAge / globalUsers.length;
+  const averageAges = sumAge / globalUsersFiltered.length;
   
   listStatisticsEl.innerHTML = `
     <li>Homens: <span>${men.length}</span></li>
@@ -66,8 +72,33 @@ function renderStatistics() {
   `;
   
   quantityUsersEl.innerHTML = `
-    ${globalUsers.length} usuário(s) encontrado(s)
+    ${globalUsersFiltered.length} usuário(s) encontrado(s)
   `;
+}
+
+function filterUsers() {
+  const inputSearch = document.getElementById('inputSearch');
+  const btnSearch = document.getElementById('btnSearch');
+
+  inputSearch.addEventListener('blur', () => {
+    // if (inputSearch.value !== '') {
+    //   inputSearch.classList.add('bordered-input');
+    //   btnSearch.classList.add('bordered-button');
+    // } else {
+    //   inputSearch.classList.remove('bordered-input');
+    //   btnSearch.classList.remove('bordered-button');
+    // }
+  });
+
+  btnSearch.addEventListener('click', () => {
+    const filteredValue = inputSearch.value.toLowerCase();
+    
+    globalUsersFiltered = globalUsers.filter(user =>
+      user.nameLowerCase.includes(filteredValue)
+    );
+
+    render();
+  });
 }
 
 init();
