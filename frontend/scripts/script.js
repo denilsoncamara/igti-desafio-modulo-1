@@ -10,13 +10,16 @@ async function init() {
   globalUsersFiltered = [...globalUsers];
 
   filterUsers();
+  changeTheme();
+
   render();
 }
 
 async function getUsers() {
-  const response = await fetch(URL);
-  const json = await response.json();
-  const users = json.results;
+  const response = await fetch(URLDEV);
+  // const json = await response.json();
+  // const users = json.results;
+  const users = await response.json();
 
   globalUsers = users.map(user => {
     const {
@@ -100,6 +103,37 @@ function filterUsers() {
     );
 
     render();
+  });
+}
+
+function changeTheme() {
+  const iconThemeEl = document.querySelector('[data-icon="mdi:theme-light-dark"]');
+  const headEl = document.querySelector('head');
+  
+  let lightTheme = localStorage.getItem('@GetUser:theme');
+  let link = document.createElement('link');
+
+  if (lightTheme) {
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', lightTheme);
+    
+    headEl.append(link);
+  }
+  
+  iconThemeEl.addEventListener('click', () => {
+    if (lightTheme) {
+      lightTheme = null;
+      localStorage.removeItem('@GetUser:theme');
+      link.remove(link);
+    } else {
+      localStorage.setItem('@GetUser:theme', './styles/light-theme.css');
+      lightTheme = localStorage.getItem('@GetUser:theme');
+      
+      link.setAttribute('rel', 'stylesheet');
+      link.setAttribute('href', lightTheme);
+      
+      headEl.append(link);
+    }
   });
 }
 

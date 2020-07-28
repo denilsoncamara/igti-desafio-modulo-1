@@ -1,0 +1,39 @@
+:root {
+  --primary: #21252A;
+  --secondary: #2E343A;
+  --title-color: #D62058;
+  --button-color: #1CAACB;
+  --text-ligth: #A4A8AB;
+  --text-dark: #2E343A;
+}
+
+html {
+  background-color: #efefef;
+}
+
+.iconify {
+  color: var(--secondary);
+}
+
+.box {
+  border-radius: 6px;
+  box-shadow: -4px -4px 10px #fff, 4px 4px 10px #d0d0d0;
+}
+
+.header > .title {
+  color: var(--secondary);
+}
+
+.container-search input[type="text"] {
+  background-color: #fff;
+  border: 2px solid #fff;
+}
+
+.container-search button {
+  background-color: #a9b2b9;
+}
+
+.list-users > li {
+  color: var(--text-dark);
+  border: 1px solid #d4d4d4;
+}

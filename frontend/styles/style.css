@@ -46,13 +46,26 @@ a {
 
 .box {
   border-radius: 6px;
-  box-shadow: -4px -4px 4px rgba(65, 73, 82, .25), 4px 4px 4px #1C1F23;
+  box-shadow: -4px -4px 10px rgba(65, 73, 82, .25), 4px 4px 10px #1C1F23;
 }
 
 .container {
   max-width: 800px;
   margin: 50px auto;
   padding: 20px;
+
+  position: relative;
+}
+
+.iconify {
+  color: #fff;
+  font-size: 36px;
+  
+  right: 0;
+  position: absolute;
+  
+  cursor: pointer;
+  transition: color .2s;
 }
 
 /**
