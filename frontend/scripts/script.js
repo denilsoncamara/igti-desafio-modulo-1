@@ -47,4 +47,27 @@ async function render() {
   `;
 }
 
+function renderStatistics() {
+  const listStatisticsEl = document.getElementById('listStatistics');
+  const quantityUsersEl = document.getElementById('quantityUsers');
+  
+  const men = globalUsers.filter(user => user.gender === 'male');
+  const women = globalUsers.filter(user => user.gender === 'female');
+  
+  const sumAge = globalUsers.reduce((acc, curr) => acc + curr.age, 0);
+
+  const averageAges = sumAge / globalUsers.length;
+  
+  listStatisticsEl.innerHTML = `
+    <li>Homens: <span>${men.length}</span></li>
+    <li>Mulheres: <span>${women.length}</span></li>
+    <li>Soma das idades: <span>${sumAge}</span></li>
+    <li>Média das idades: <span>${averageAges.toFixed(2)}</span></li>
+  `;
+  
+  quantityUsersEl.innerHTML = `
+    ${globalUsers.length} usuário(s) encontrado(s)
+  `;
+}
+
 init();
